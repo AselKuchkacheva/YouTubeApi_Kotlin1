@@ -24,5 +24,7 @@ abstract class BaseActivity<B : ViewBinding>(val bindingFactory: (LayoutInflater
 
     abstract fun setupUI() //внутри этого метода ты реализуем все view
 
+    abstract fun showDisconnectState()
+
 }
 
