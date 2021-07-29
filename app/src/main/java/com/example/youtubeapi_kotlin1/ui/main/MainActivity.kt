@@ -1,13 +1,17 @@
 package com.example.youtubeapi_kotlin1.ui.main
 
+import Items
 import PlaylistAdapter
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.youtubeapi_kotlin1.databinding.ActivityMainBinding
+import com.example.youtubeapi_kotlin1.ui.detail.PlayListDetailActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OnPlaylistClick {
 
     private var viewModel: MainViewModel? = null
     private var adapter: PlaylistAdapter? = null
@@ -26,21 +30,27 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun setupLiveData() {
+    private fun setupLiveData() {
+        adapter = PlaylistAdapter(this)
         viewModel?.fetchPlayList()?.observe(this, {
-
-            binding?.rvPlayLists?.apply {
-                this.adapter = it?.let { it -> PlaylistAdapter(it) }
-            }
+            it?.items?.let { it1 -> adapter!!.setList(it1) }
+            binding?.rvPlayLists?.adapter = adapter
             Toast.makeText(this, it?.kind.toString(), Toast.LENGTH_SHORT).show()
         })
     }
 
-    fun setupUI() {
+    private fun setupUI() {
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
     }
 
-    fun showDisconnectState() {
+    private fun showDisconnectState() {
 
+    }
+
+    override fun onPlaylist(items: Items) {
+        var intent = Intent(this, PlayListDetailActivity::class.java)
+        intent.putExtra("key", items.id)
+        startActivity(intent)
+        Log.e("TAG", "onPlaylist: ", )
     }
 }

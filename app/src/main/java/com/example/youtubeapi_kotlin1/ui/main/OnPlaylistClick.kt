@@ -4,5 +4,4 @@ import Items
 
 interface OnPlaylistClick {
     fun onPlaylist(items: Items)
-
 }
