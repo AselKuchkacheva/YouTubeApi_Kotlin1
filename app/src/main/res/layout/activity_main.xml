@@ -10,7 +10,9 @@
         android:id="@+id/rv_play_lists"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_play_list"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:layout_editor_absoluteX="-61dp"
+        tools:layout_editor_absoluteY="96dp"
+        tools:listitem="@layout/item_play_list" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

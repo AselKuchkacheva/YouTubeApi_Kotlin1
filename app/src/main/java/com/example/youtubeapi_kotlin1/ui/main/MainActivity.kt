@@ -6,13 +6,16 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.youtubeapi_kotlin1.InternetConnection
 import com.example.youtubeapi_kotlin1.base.BaseActivity
 import com.example.youtubeapi_kotlin1.databinding.ActivityMainBinding
 import com.example.youtubeapi_kotlin1.ui.detail.PlayListDetailActivity
+import okhttp3.internal.notify
 
-class MainActivity : BaseActivity<ActivityMainBinding>({ ActivityMainBinding.inflate(it) }), OnPlaylistClick {
+class MainActivity : BaseActivity<ActivityMainBinding>({ ActivityMainBinding.inflate(it) }),
+    OnPlaylistClick {
 
     private var viewModel: MainViewModel? = null
     private var adapter: PlaylistAdapter? = null
@@ -23,7 +26,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>({ ActivityMainBinding.inf
 
         binding = getViewBinding()
         val view = binding?.root
-
         setContentView(view)
 
     }
@@ -33,7 +35,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>({ ActivityMainBinding.inf
         viewModel?.fetchPlayList()?.observe(this, {
             it?.items?.let { it1 -> adapter!!.setList(it1) }
             binding?.rvPlayLists?.adapter = adapter
-            Toast.makeText(this, it?.kind.toString(), Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this, it?.kind.toString(), Toast.LENGTH_SHORT).show()
         })
     }
 
@@ -42,6 +44,14 @@ class MainActivity : BaseActivity<ActivityMainBinding>({ ActivityMainBinding.inf
     }
 
     override fun showDisconnectState() {
+        val internetConnection = InternetConnection(context = applicationContext)
+        internetConnection.observe(this, Observer { isConnected ->
+            if (isConnected) {
+
+            } else{
+
+            }
+        })
 
     }
 
@@ -49,10 +59,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>({ ActivityMainBinding.inf
         var intent = Intent(this, PlayListDetailActivity::class.java)
         intent.putExtra("key", items.id)
         startActivity(intent)
-        Log.e("TAG", "onPlaylist: ", )
+        Log.e("TAG", "onPlaylist: ")
     }
 
     override fun getViewBinding(): ActivityMainBinding {
-       return ActivityMainBinding.inflate(layoutInflater)
+        return ActivityMainBinding.inflate(layoutInflater)
     }
 }

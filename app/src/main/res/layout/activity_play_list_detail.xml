@@ -1,43 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context=".ui.detail.PlayListDetailActivity">
 
-<!--    <androidx.appcompat.widget.Toolbar-->
-<!--        android:id="@+id/tool_bar"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="?attr/actionBarSize"-->
-<!--        android:background="@color/white"-->
-<!--        android:elevation="4dp"-->
-<!--        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">-->
+<com.google.android.material.appbar.CollapsingToolbarLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-<!--        <ImageView-->
-<!--            android:id="@+id/tool_bar_iv_back"-->
-<!--            android:src="@drawable/ic_arrow"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content" />-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-<!--        <TextView-->
-<!--            android:id="@+id/tool_bar_tv_back"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textSize="16sp"-->
-<!--            android:text="Back"-->
-<!--            android:textColor="@color/red" />-->
+    </TextView>
 
-<!--        <TextView-->
-<!--            android:id="@+id/tool_bar_tv_play_list"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="100dp"-->
-<!--            android:fontFamily="@font/noto_sans"-->
-<!--            android:text="Playlist"-->
-<!--            android:textColor="@color/red"-->
-<!--            android:textSize="20sp"-->
-<!--            android:textStyle="bold" />-->
-<!--    </androidx.appcompat.widget.Toolbar>-->
-</FrameLayout>
+</com.google.android.material.appbar.CollapsingToolbarLayout>
+<!--        <androidx.appcompat.widget.Toolbar-->
+<!--            android:id="@+id/tool_bar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="?attr/actionBarSize"-->
+<!--            android:background="@color/white"-->
+<!--            android:elevation="4dp"-->
+<!--            android:theme="@style/Theme_for_detail.YouTubeApi_Kotlin1"-->
+<!--            >-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/tool_bar_iv_back"-->
+<!--                android:src="@drawable/ic_arrow"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tool_bar_tv_back"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textSize="16sp"-->
+<!--                android:text="Back"-->
+<!--                android:textColor="@color/red" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tool_bar_tv_play_list"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="100dp"-->
+<!--                android:fontFamily="@font/noto_sans"-->
+<!--                android:text="Playlist"-->
+<!--                android:textColor="@color/red"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textStyle="bold" />-->
+<!--        </androidx.appcompat.widget.Toolbar>-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/gray_for_coordinator"
+            android:orientation="vertical"
+            app:layout_scrollFlags="enterAlways|scroll"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Emotional Well-being and Healing Practices for Children"
+                android:layout_height="wrap_content"
+                app:layout_constrainedWidth="true"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
