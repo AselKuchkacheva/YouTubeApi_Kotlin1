@@ -16,6 +16,7 @@ abstract class BaseActivity<B : ViewBinding>(val bindingFactory: (LayoutInflater
         setContentView(binding.root)
         setupUI()
         setupLiveData()
+        showDisconnectState()
     }
 
     abstract fun getViewBinding(): B

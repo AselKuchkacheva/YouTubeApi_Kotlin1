@@ -89,5 +89,4 @@ class  InternetConnection(
         val activeNetwork: NetworkInfo? = connectivityManager.activeNetworkInfo
         postValue(activeNetwork?.isConnected == true)
     }
-
 }
