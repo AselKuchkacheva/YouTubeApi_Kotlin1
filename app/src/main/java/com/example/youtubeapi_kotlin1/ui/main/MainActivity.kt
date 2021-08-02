@@ -21,7 +21,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>({ ActivityMainBinding.inf
 
     private var ui: InternetConnectionBinding? = null
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -63,6 +62,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>({ ActivityMainBinding.inf
     override fun onPlaylist(items: Items) {
         val intent = Intent(this, PlayListDetailActivity::class.java)
         intent.putExtra("key", items.id)
+        intent.putExtra("keyTitle", items.snippet.title)
+        intent.putExtra("keyDescription", items.snippet.description)
         startActivity(intent)
     }
 

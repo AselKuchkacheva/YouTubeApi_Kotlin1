@@ -1,85 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:theme="@style/Theme.Design.Light.NoActionBar"
     tools:context=".ui.detail.PlayListDetailActivity">
 
-<com.google.android.material.appbar.CollapsingToolbarLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <TextView
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        tools:ignore="MissingConstraints">
 
-    </TextView>
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:collapsedTitleGravity="center"
+            app:contentScrim="#DADADA"
+            app:expandedTitleMarginStart="64dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-</com.google.android.material.appbar.CollapsingToolbarLayout>
-<!--        <androidx.appcompat.widget.Toolbar-->
-<!--            android:id="@+id/tool_bar"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="?attr/actionBarSize"-->
-<!--            android:background="@color/white"-->
-<!--            android:elevation="4dp"-->
-<!--            android:theme="@style/Theme_for_detail.YouTubeApi_Kotlin1"-->
-<!--            >-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="#E4E4E4"
+                android:orientation="vertical"
+                android:paddingHorizontal="5dp">
 
-<!--            <ImageView-->
-<!--                android:id="@+id/tool_bar_iv_back"-->
-<!--                android:src="@drawable/ic_arrow"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content" />-->
+                <TextView
+                    android:id="@+id/titleTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16"
+                    android:layout_marginTop="55dp"
+                    android:fontFamily="@font/fjalla_one"
+                    android:text="Emotional Well-being end Healing Practices for Children"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    app:layout_collapseMode="parallax"
+                    app:layout_collapseParallaxMultiplier="0.7" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/tool_bar_tv_back"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:textSize="16sp"-->
-<!--                android:text="Back"-->
-<!--                android:textColor="@color/red" />-->
+                <TextView
+                    android:id="@+id/descTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/noto_sans"
+                    android:gravity="left"
+                    android:text="In this series, we break down the impact of displacement, instability, violence, and trauma in children, and offer exercises to support children in their healing journey."
+                    android:textColor="@color/black" />
+            </LinearLayout>
 
-<!--            <TextView-->
-<!--                android:id="@+id/tool_bar_tv_play_list"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="100dp"-->
-<!--                android:fontFamily="@font/noto_sans"-->
-<!--                android:text="Playlist"-->
-<!--                android:textColor="@color/red"-->
-<!--                android:textSize="20sp"-->
-<!--                android:textStyle="bold" />-->
-<!--        </androidx.appcompat.widget.Toolbar>-->
+            <Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/white"
+                android:titleTextColor="#FF0000"
+                tools:ignore="NewApi">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/arrowBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingEnd="10dp"
+                        android:src="@drawable/ic_arrow"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Back"
+                        android:textColor="@color/red"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/arrowBack"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Playlist"
+                        android:textColor="@color/red"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/float_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="#FF0000"
+        android:foreground="@drawable/ic_play_button"
+        android:tint="#FFFFFF"
+        app:layout_anchor="@id/app_bar_layout"
+        app:layout_anchorGravity="bottom|right|end" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/videoListRecycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        android:layout_margin="16dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:listitem="@layout/item_detail_play_list" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@color/gray_for_coordinator"
-            android:orientation="vertical"
-            app:layout_scrollFlags="enterAlways|scroll"
-            app:layout_constraintTop_toTopOf="parent"
-            >
+    <TextView
+        android:id="@+id/tv_video_series_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_16"
+        android:text="32 video series"
+        android:textSize="@dimen/txSize12"
+        app:layout_anchor="@+id/videoListRecycler"
+        app:layout_anchorGravity="start|top" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:text="Emotional Well-being and Healing Practices for Children"
-                android:layout_height="wrap_content"
-                app:layout_constrainedWidth="true"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-
-        </LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
-

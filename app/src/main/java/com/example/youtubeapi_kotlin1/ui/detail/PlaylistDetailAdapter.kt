@@ -4,14 +4,16 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.youtubeapi_kotlin1.R
+import com.example.youtubeapi_kotlin1.databinding.ItemDetailPlayListBinding
 import com.example.youtubeapi_kotlin1.databinding.ItemPlayListBinding
 import com.example.youtubeapi_kotlin1.extensions.loadImage
 import com.example.youtubeapi_kotlin1.ui.main.OnPlaylistClick
 
-class PlaylistAdapter(
+
+class PlaylistDetailAdapter(
     private var listener: OnPlaylistClick
 ) :
-    RecyclerView.Adapter<PlaylistAdapter.ViewHolder>() {
+    RecyclerView.Adapter<PlaylistDetailAdapter.ViewHolder>() {
 
 
     private var context: Context? = null
@@ -26,7 +28,7 @@ class PlaylistAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         context = parent.context
         return ViewHolder(
-            ItemPlayListBinding.inflate(LayoutInflater.from(context), parent, false),
+            ItemDetailPlayListBinding.inflate(LayoutInflater.from(context), parent, false),
             context as Context
         )
     }
@@ -40,7 +42,8 @@ class PlaylistAdapter(
         }
     }
 
-    class ViewHolder(private val view: ItemPlayListBinding, private val context: Context): RecyclerView.ViewHolder(view.root) {
+    class ViewHolder(private val view: ItemDetailPlayListBinding, private val context: Context):
+        RecyclerView.ViewHolder(view.root) {
 
         @SuppressLint("SetTextI18n")
         fun bindPhoto(item: Items) {
@@ -48,9 +51,9 @@ class PlaylistAdapter(
             view.tvPlaylistTitle.text = item.snippet.title
             view.ivVideoPreview.loadImage(context, item.snippet.thumbnails.default.url)
 //            if (item.contentDetails.videoPublishedAt !=null) {
-//                view.tvVideoSeries.text = item.contentDetails.videoPublishedAt
+                view.tvVideoSeries.text = item.contentDetails.videoPublishedAt
 //            }else{
-                view.tvVideoSeries.text = "${item.contentDetails.itemCount}  ${context.getString(R.string.video_series)}"
+//                view.tvVideoSeries.text = "${item.contentDetails.itemCount}  ${context.getString(R.string.video_series)}"
 //            }
         }
     }
