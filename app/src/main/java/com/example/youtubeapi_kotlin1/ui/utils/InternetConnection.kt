@@ -1,4 +1,4 @@
-package com.example.youtubeapi_kotlin1
+package com.example.youtubeapi_kotlin1.ui.utils
 
 import android.annotation.TargetApi
 import android.content.BroadcastReceiver

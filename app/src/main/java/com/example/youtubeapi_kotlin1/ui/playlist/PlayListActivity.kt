@@ -1,4 +1,4 @@
-package com.example.youtubeapi_kotlin1.ui.main
+package com.example.youtubeapi_kotlin1.ui.playlist
 
 import Items
 import PlaylistAdapter
@@ -6,16 +6,16 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
-import com.example.youtubeapi_kotlin1.InternetConnection
+import com.example.youtubeapi_kotlin1.ui.utils.InternetConnection
 import com.example.youtubeapi_kotlin1.base.BaseActivity
 import com.example.youtubeapi_kotlin1.databinding.ActivityMainBinding
 import com.example.youtubeapi_kotlin1.databinding.InternetConnectionBinding
 import com.example.youtubeapi_kotlin1.ui.detail.PlayListDetailActivity
 
-class MainActivity : BaseActivity<ActivityMainBinding>({ ActivityMainBinding.inflate(it) }),
+class PlayListActivity : BaseActivity<ActivityMainBinding>({ ActivityMainBinding.inflate(it) }),
     OnPlaylistClick {
 
-    private var viewModel: MainViewModel? = null
+    private var viewModel: PlayListViewModel? = null
     private var adapter: PlaylistAdapter? = null
     private var binding: ActivityMainBinding? = null
 
@@ -41,7 +41,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>({ ActivityMainBinding.inf
     }
 
     override fun setupUI() {
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(PlayListViewModel::class.java)
     }
 
     override fun showDisconnectState() {

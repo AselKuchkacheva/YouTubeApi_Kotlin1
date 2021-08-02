@@ -6,13 +6,13 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.example.youtubeapi_kotlin1.base.BaseActivity
 import com.example.youtubeapi_kotlin1.databinding.ActivityPlayListDetailBinding
-import com.example.youtubeapi_kotlin1.ui.main.OnPlaylistClick
+import com.example.youtubeapi_kotlin1.ui.playlist.OnPlaylistClick
 
 class PlayListDetailActivity : BaseActivity<ActivityPlayListDetailBinding>({ ActivityPlayListDetailBinding.inflate(it) }),
     OnPlaylistClick {
 
     private var binding: ActivityPlayListDetailBinding? = null
-    private var viewModel: DetailViewModel? = null
+    private var viewModelPlayList: PlayListDetailViewModel? = null
     lateinit var adapter: PlaylistDetailAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +40,7 @@ class PlayListDetailActivity : BaseActivity<ActivityPlayListDetailBinding>({ Act
     private fun getIntentPlayList() {
         val id = intent.getStringExtra("key")?: "not"
 
-        viewModel?.fetchVideoByID(id)
+        viewModelPlayList?.fetchVideoByID(id)
        // Toast.makeText(baseContext, intent.getStringExtra("key"), Toast.LENGTH_SHORT).show()
     }
 
@@ -49,9 +49,9 @@ class PlayListDetailActivity : BaseActivity<ActivityPlayListDetailBinding>({ Act
     }
 
     override fun setupLiveData() {
-        viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
+        viewModelPlayList = ViewModelProvider(this).get(PlayListDetailViewModel::class.java)
         getIntentPlayList()
-        viewModel?.data?.observe(this,{
+        viewModelPlayList?.data?.observe(this,{
             it?.items?.let { it1 -> adapter!!.setList(it1) }
         })
     }

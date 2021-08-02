@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.YouTubeApi_Kotlin1">
-        <activity android:name=".ui.main.MainActivity">
+        <activity android:name=".ui.playlist.PlayListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,7 +22,7 @@
         <activity android:name=".ui.detail.PlayListDetailActivity">
 
         </activity>
-        <receiver android:name=".NetworkChangeReceiver">
+        <receiver android:name=".ui.utils.NetworkChangeReceiver">
             <intent-filter>
                 <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
             </intent-filter>

@@ -1,4 +1,4 @@
-package com.example.youtubeapi_kotlin1.ui.main
+package com.example.youtubeapi_kotlin1.ui.detail
 
 import PlayList
 import androidx.lifecycle.LiveData
@@ -11,26 +11,19 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainViewModel : BaseViewModel() {
+class PlayListDetailViewModel : BaseViewModel() {
 
-    fun fetchPlayList(): LiveData<PlayList?> {
-        return fetchYoutubeApiPlayList()
-    }
 
-    private var apiService: ApiService? = null
+    private var apiService: ApiService? = RetrofitClient.create()
+    val data = MutableLiveData<PlayList>()
 
-    private fun fetchYoutubeApiPlayList(): LiveData<PlayList?> {
+    fun fetchVideoByID(id: String) {
 
-        apiService = RetrofitClient.create()
-
-        val data = MutableLiveData<PlayList?>()
-
-        apiService?.fetchAllPlayList(Constant.API_KEY, Constant.PART, Constant.CHANNEL_ID)
+        apiService?.getVideoListFromPlaylist(Constant.PART, id, Constant.API_KEY, 10)
             ?.enqueue(object :
                 Callback<PlayList> {
 
                 override fun onResponse(call: Call<PlayList>, response: Response<PlayList>) {
-
                     data.value = response.body()
 
                 }
@@ -39,7 +32,5 @@ class MainViewModel : BaseViewModel() {
                     data.value = null
                 }
             })
-
-        return data
     }
 }

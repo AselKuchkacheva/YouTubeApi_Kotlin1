@@ -1,4 +1,4 @@
-package com.example.youtubeapi_kotlin1
+package com.example.youtubeapi_kotlin1.ui.utils
 
 import android.net.ConnectivityManager
 
@@ -10,6 +10,7 @@ import android.util.Log
 
 
 class NetworkChangeReceiver : BroadcastReceiver() {
+
     override fun onReceive(context: Context, intent: Intent?) {
         val connMgr = context
             .getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

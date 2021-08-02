@@ -1,4 +1,4 @@
-package com.example.youtubeapi_kotlin1.ui.main
+package com.example.youtubeapi_kotlin1.ui.playlist
 
 import Items
 
