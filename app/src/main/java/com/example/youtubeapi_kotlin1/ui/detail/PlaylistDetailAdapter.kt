@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.youtubeapi_kotlin1.databinding.ItemDetailPlayListBinding
+import com.example.youtubeapi_kotlin1.extensions.loadImage
 import com.example.youtubeapi_kotlin1.ui.playlist.OnPlaylistClick
 
 

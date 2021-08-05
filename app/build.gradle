@@ -14,6 +14,9 @@ android {
         versionCode 1
         versionName "1.0"
 
+        buildConfigField "String", "BASE_URL", "\"https://www.googleapis.com\""
+        buildConfigField "String", "API_KEY", "\"AIzaSyBPTQ_yO5Lg2WzPQQK4j5Zsm1e2ZEct5FM\""
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -56,8 +59,8 @@ dependencies {
     implementation"com.squareup.okhttp3:logging-interceptor:4.9.1"
 
     // Lifecycle
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
 
     // Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1'

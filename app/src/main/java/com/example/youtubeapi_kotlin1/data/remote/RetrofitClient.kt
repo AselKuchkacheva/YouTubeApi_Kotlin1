@@ -1,6 +1,6 @@
 package com.example.youtubeapi_kotlin1.data.remote
 
-import com.example.youtubeapi_kotlin1.data.`object`.Constant
+import com.example.youtubeapi_kotlin1.BuildConfig.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -25,7 +25,7 @@ class RetrofitClient {
 
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl(Constant.BASE_URL)
+                .baseUrl(BASE_URL)
                 .client(okHttpClient)
                 .build()
 

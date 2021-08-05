@@ -15,6 +15,7 @@ class PlayListDetailActivity : BaseActivity<ActivityPlayListDetailBinding>({ Act
     private var viewModelPlayList: PlayListDetailViewModel? = null
     lateinit var adapter: PlaylistDetailAdapter
 
+    private var id = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = getViewBinding()
@@ -38,7 +39,8 @@ class PlayListDetailActivity : BaseActivity<ActivityPlayListDetailBinding>({ Act
     }
 
     private fun getIntentPlayList() {
-        val id = intent.getStringExtra("key")?: "not"
+
+        id = intent.getStringExtra("key")?: "not"
 
         viewModelPlayList?.fetchVideoByID(id)
        // Toast.makeText(baseContext, intent.getStringExtra("key"), Toast.LENGTH_SHORT).show()
@@ -49,9 +51,10 @@ class PlayListDetailActivity : BaseActivity<ActivityPlayListDetailBinding>({ Act
     }
 
     override fun setupLiveData() {
+
         viewModelPlayList = ViewModelProvider(this).get(PlayListDetailViewModel::class.java)
         getIntentPlayList()
-        viewModelPlayList?.data?.observe(this,{
+        viewModelPlayList?.fetchVideoByID(id)?.observe(this,{
             it?.items?.let { it1 -> adapter!!.setList(it1) }
         })
     }

@@ -8,16 +8,16 @@ import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.example.youtubeapi_kotlin1.ui.utils.InternetConnection
 import com.example.youtubeapi_kotlin1.base.BaseActivity
-import com.example.youtubeapi_kotlin1.databinding.ActivityMainBinding
+import com.example.youtubeapi_kotlin1.databinding.ActivityPlayListBinding
 import com.example.youtubeapi_kotlin1.databinding.InternetConnectionBinding
 import com.example.youtubeapi_kotlin1.ui.detail.PlayListDetailActivity
 
-class PlayListActivity : BaseActivity<ActivityMainBinding>({ ActivityMainBinding.inflate(it) }),
+class PlayListActivity : BaseActivity<ActivityPlayListBinding>({ ActivityPlayListBinding.inflate(it) }),
     OnPlaylistClick {
 
     private var viewModel: PlayListViewModel? = null
     private var adapter: PlaylistAdapter? = null
-    private var binding: ActivityMainBinding? = null
+    private var binding: ActivityPlayListBinding? = null
 
     private var ui: InternetConnectionBinding? = null
 
@@ -67,7 +67,7 @@ class PlayListActivity : BaseActivity<ActivityMainBinding>({ ActivityMainBinding
         startActivity(intent)
     }
 
-    override fun getViewBinding(): ActivityMainBinding {
-        return ActivityMainBinding.inflate(layoutInflater)
+    override fun getViewBinding(): ActivityPlayListBinding {
+        return ActivityPlayListBinding.inflate(layoutInflater)
     }
 }
