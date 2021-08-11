@@ -1,4 +1,4 @@
-package com.example.youtubeapi_kotlin1.base
+package com.example.youtubeapi_kotlin1.core.ui
 
 import androidx.lifecycle.ViewModel
 

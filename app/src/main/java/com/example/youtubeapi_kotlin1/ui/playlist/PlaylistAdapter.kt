@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.youtubeapi_kotlin1.R
 import com.example.youtubeapi_kotlin1.databinding.ItemPlayListBinding
 import com.example.youtubeapi_kotlin1.extensions.loadImage
+import com.example.youtubeapi_kotlin1.model.Items
 import com.example.youtubeapi_kotlin1.ui.playlist.OnPlaylistClick
 
 class PlaylistAdapter(

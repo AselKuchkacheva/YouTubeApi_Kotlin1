@@ -1,13 +1,15 @@
 package com.example.youtubeapi_kotlin1.ui.playlist
 
-import Items
+import com.example.youtubeapi_kotlin1.model.Items
 import PlaylistAdapter
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.example.youtubeapi_kotlin1.core.network.Status
 import com.example.youtubeapi_kotlin1.ui.utils.InternetConnection
-import com.example.youtubeapi_kotlin1.base.BaseActivity
+import com.example.youtubeapi_kotlin1.core.ui.BaseActivity
 import com.example.youtubeapi_kotlin1.databinding.ActivityPlayListBinding
 import com.example.youtubeapi_kotlin1.databinding.InternetConnectionBinding
 import com.example.youtubeapi_kotlin1.ui.detail.PlayListDetailActivity
@@ -33,10 +35,26 @@ class PlayListActivity : BaseActivity<ActivityPlayListBinding>({ ActivityPlayLis
 
     override fun setupLiveData() {
         adapter = PlaylistAdapter(this)
-        viewModel?.fetchPlayList()?.observe(this, {
-            it?.items?.let { it1 -> adapter!!.setList(it1) }
-            binding?.rvPlayLists?.adapter = adapter
-            //Toast.makeText(this, it?.kind.toString(), Toast.LENGTH_SHORT).show()
+        viewModel?.fetchPlayList()?.observe(this, { response ->
+
+            when(response.status){
+                Status.LOADING -> {}
+
+                Status.ERROR -> {
+                    Toast.makeText(this, response.message,Toast.LENGTH_SHORT).show()
+                }
+
+                Status.SUCCESS -> {
+
+                    if(response?.data != null) {
+                        // Toast.makeText(this, response?.data?.kind.toString(), Toast.LENGTH_SHORT).show()
+                        response.data.items.let { it1 -> adapter?.setList(it1) }
+                        binding?.rvPlayLists?.adapter = adapter
+                    }
+                }
+            }
+
+
         })
     }
 

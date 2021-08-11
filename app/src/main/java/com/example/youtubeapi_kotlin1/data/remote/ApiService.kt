@@ -1,6 +1,6 @@
 package com.example.youtubeapi_kotlin1.data.remote
 
-import PlayList
+import com.example.youtubeapi_kotlin1.model.PlayList
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
